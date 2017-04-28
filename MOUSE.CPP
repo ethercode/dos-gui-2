@@ -120,8 +120,7 @@ void TMouse::createMouseEvents()
 TMouse::TMouse()
 {
     visible = 0;
-    asm
-    {
+    asm {
         mov ax,0x0007
         mov cx,0;
         mov dx,639;
@@ -154,8 +153,7 @@ void TMouse::show()
     if (!visible)
     {
         visible = 1;
-        asm
-        {
+	asm {
             mov ax,0x0001;
             int 0x33;
         }
@@ -186,8 +184,7 @@ void TMouse::hide(int x1, int y1, int x2, int y2)
         if ((x > x1) && (x < x2) && (y > y1) && (y < y2))
         {
             visible = 0;
-            asm
-            {
+	    asm {
                 mov ax,0x0002;
                 int 0x33;
             }
@@ -201,8 +198,7 @@ void TMouse::hide()
     {
         {
             visible = 0;
-            asm
-            {
+	    asm {
                 mov ax,0x0002;
                 int 0x33;
             }
@@ -212,8 +208,7 @@ void TMouse::hide()
 
 void TMouse::setMousePosition(int x, int y)
 {
-    asm
-    {
+    asm {
         mov ax,0x0004
         mov cx,x;
         mov dx,y;
@@ -224,8 +219,7 @@ void TMouse::setMousePosition(int x, int y)
 void TMouse::update()
 {
     unsigned int xPos,yPos,bState;
-    asm
-    {
+    asm {
         mov ax,0x0003
         int 0x33
         mov bState,bx

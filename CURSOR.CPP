@@ -51,8 +51,7 @@ void TCursor::show()
     o = unsigned(k & 0x0000FFFFL);
     gui->getMouse()->hide();
     unsigned int x = hx,y = hy;
-    asm
-    {
+    asm {
         mov ax,9
         mov bx,x;
         mov cx,y;
